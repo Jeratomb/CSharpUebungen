@@ -5,4 +5,4 @@ string vorname = Console.ReadLine()?? String.Empty;
 Console.WriteLine($"Hallo {vorname}, schön, dass du C# programmierst");
 Console.WriteLine("Was ist deine (ganze) Lieblingszahl?");
 int favZahl = int.Parse(Console.ReadLine()?? String.Empty);
-Console.WriteLine($"Deine Lieblingszahl ist {0}",favZahl);
+Console.WriteLine("Deine Lieblingszahl ist {0}",favZahl);
