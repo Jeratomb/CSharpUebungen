@@ -17,6 +17,7 @@ foreach(Person p in array)
 
 #region Ich bin ein klappbarer Bereich
 Console.WriteLine("Auf Wiedersehen");
+Console.WriteLine("test");
 #endregion
 
 
