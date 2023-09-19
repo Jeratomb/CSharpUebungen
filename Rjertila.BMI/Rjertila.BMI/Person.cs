@@ -187,35 +187,67 @@ namespace Rjertila.BMI
 			}
 		}
 
-		public int BerechneAlter(DateOnly day)
-		{
+		//public int BerechneAlter(DateOnly day)
+		//{
 
-			int years = day.Year - this.Geburtsdatum.Year;
-			if (day < this.Geburtsdatum)
-			{
-				return 0;
-			}
-			else
-			{
-				if (this.Geburtsdatum.Month <= day.Month)
-				{
-					if (this.Geburtsdatum.Day < day.Day)
-					{
-						years--;
-					}
-					else
-					{
-						if (this.Geburtsdatum.Year % 400 == 0 && (this.Geburtsdatum.Month == 02 && this.Geburtsdatum.Day == 29 && this.Geburtsdatum.Day > day.Day))
-						{
-							years--;
-						}
-					}
-				}
-			}
-			return years;
-		}
+		//	int years = day.Year - this.Geburtsdatum.Year;
+		//	if (day < this.Geburtsdatum)
+		//	{
+		//		return 0;
+		//	}
+		//	else
+		//	{
+		//		if (this.Geburtsdatum.Month <= day.Month)
+		//		{
+		//			if (this.Geburtsdatum.Day < day.Day)
+		//			{
+		//				years--;
+		//			}
+		//			else
+		//			{
+		//				if (this.Geburtsdatum.Year % 400 == 0 && (this.Geburtsdatum.Month == 02 && this.Geburtsdatum.Day == 29 && this.Geburtsdatum.Day > day.Day))
+		//				{
+		//					years--;
+		//				}
+		//			}
+		//		}
+		//	}
+		//	return years;
+		//}
 
-		public override string ToString()
+        //public int BerechneAlter(DateOnly day)
+        //{
+        //    int alter = day.Year - this.Geburtsdatum.Year;
+
+        //    if (day.DayOfYear < this.Geburtsdatum.DayOfYear)
+        //    {
+        //        alter--;
+        //    }
+        //    else if (day.DayOfYear == this.Geburtsdatum.DayOfYear)
+        //    {
+        //        // Fall: Geburtstag am 29. Februar und Schaltjahrprüfung
+        //        if (this.Geburtsdatum.Month == 2 && this.Geburtsdatum.Day == 29 && !DateTime.IsLeapYear(day.Year))
+        //        {
+        //            alter--;
+        //        }
+        //    }
+
+        //    return alter;
+        //}
+
+        public int BerechneAlter(DateOnly day)
+        {
+            int alter = day.Year - this.Geburtsdatum.Year;
+
+            if (day.Month < this.Geburtsdatum.Month || (day.Month == this.Geburtsdatum.Month && day.Day < this.Geburtsdatum.Day))
+            {
+                alter--;
+            }
+
+            return alter;
+        }
+
+        public override string ToString()
 		{
 			return String.Format("Vorname: {0} \n Nachname: {1} \n Geschlecht: {2} \n Geburtsdatum: {3} \n GroesseCm: {4} \n GewichtKg: {5} ", Vorname, Nachname, getGender(), Geburtsdatum, GroesseCm, GewichtKg);
 
