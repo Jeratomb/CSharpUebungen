@@ -106,6 +106,41 @@ namespace Rjertila.BMI
 		{
 			get { return 18 <= AktuellesAlter; }
 		}
+
+		private double? BMI
+		{
+			get
+			{
+				if (GewichtKg is not null && GroesseCm is not null)
+				{
+					return GewichtKg / (GroesseCm * GroesseCm);
+				}
+				else
+				{
+					return null;
+				}
+			}
+		}
+
+		private BmiCategory GewichtStatus
+		{
+			get
+			{
+				if(BMI is null)
+				{
+					return BmiCategory.NotDefined;
+				}else if(BMI < 18.5)
+				{
+					return BmiCategory.Underweight;
+				}else if(BMI < 25)
+				{
+					return BmiCategory.Normal;
+				}else
+				{
+					return BmiCategory.Overweight;
+				}
+			}
+		}
 		#endregion
 
 		#region Constructors
@@ -170,7 +205,7 @@ namespace Rjertila.BMI
 					}
 					else
 					{
-						if (this.Geburtsdatum.Year % 400 == 0 &&(this.Geburtsdatum.Month == 02 && this.Geburtsdatum.Day == 29 && this.Geburtsdatum.Day > day.Day))
+						if (this.Geburtsdatum.Year % 400 == 0 && (this.Geburtsdatum.Month == 02 && this.Geburtsdatum.Day == 29 && this.Geburtsdatum.Day > day.Day))
 						{
 							years--;
 						}
@@ -182,8 +217,10 @@ namespace Rjertila.BMI
 
 		public override string ToString()
 		{
-			return String.Format("Vorname: {0} \n Nachname: {1} \n Geschlecht: {2} \n Geburtsdatum: {3} \n GroesseCm: {4} \n GewichtKg: {5}", Vorname, Nachname, getGender(), Geburtsdatum, GroesseCm, GewichtKg);
+			return String.Format("Vorname: {0} \n Nachname: {1} \n Geschlecht: {2} \n Geburtsdatum: {3} \n GroesseCm: {4} \n GewichtKg: {5} ", Vorname, Nachname, getGender(), Geburtsdatum, GroesseCm, GewichtKg);
 
 		}
+
+
 	}
 }
