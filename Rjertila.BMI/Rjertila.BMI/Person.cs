@@ -44,7 +44,7 @@ namespace Rjertila.BMI
 		public Gender Geschlecht
 		{
 			get { return _Geschlecht; }
-			set { _Geschlecht = value; }
+			set {	_Geschlecht = value; 	}
 		}
 
 
@@ -104,5 +104,25 @@ namespace Rjertila.BMI
 			GewichtKg = null;
 		}
 
+		public string getGender()
+		{
+			switch (Geschlecht)
+			{
+				case Gender.Male:
+					return "Männlich";
+				case Gender.Female:
+					return "Weiblich";				
+				case Gender.Diverse:
+					return "Divers";				
+				default:
+					return "NoGender";
+			}
+		}
+
+		public override string ToString()
+		{
+			return $"Vorname: {Vorname} \n Nachname: {Nachname} \n Geschlecht: {getGender()} \n Geburtsdatum: {Geburtsdatum} \n GroesseCm: {GroesseCm} \n GewichtKg: {GewichtKg}";
+
+		}
 	}
 }
