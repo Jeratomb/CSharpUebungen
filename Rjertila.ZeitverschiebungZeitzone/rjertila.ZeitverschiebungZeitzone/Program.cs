@@ -4,7 +4,7 @@
 DateTimeOffset genauesJetzt;
 DateTimeOffset jetztUTC;
 genauesJetzt = DateTimeOffset.Now;
-	jetztUTC = DateTimeOffset.Now;
+	jetztUTC = DateTimeOffset.UtcNow;
 Console.WriteLine($"Der genaue Zeitpunkt ist {genauesJetzt}");
 Console.WriteLine($"in UTC ist das {jetztUTC}");
 #endregion
