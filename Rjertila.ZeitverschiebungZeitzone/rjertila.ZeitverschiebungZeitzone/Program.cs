@@ -80,3 +80,11 @@ TimeSpan dauerBisNeujahr;
 dauerBisNeujahr = new DateTime(2024, 01, 01) - DateTimeOffset.Now;
 Console.WriteLine($"Bis zum Jahresbeginn sind es noch {dauerBisNeujahr.Days} Tage {dauerBisNeujahr.Hours} Stunden {dauerBisNeujahr.Minutes } Minuten und {dauerBisNeujahr.Seconds} Sekunden");
 #endregion
+
+#region A11
+// .TotalMinutes gibt die gesamte Zeitspanne in Minuten zurück,
+// einschließlich der Minuten und der umgerechneten Sekunden und Millisekunden.
+
+//Der Wert von .Minutes liegt immer zwischen 0 und 59, da er nur
+//die Minuten innerhalb des TimeSpan repräsentiert.
+#endregion
