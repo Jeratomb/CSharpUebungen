@@ -8,7 +8,7 @@ namespace rjertila.Satellitenverwaltung
 {
 	public class Verschluesselt : Sender
 	{
-		private string _verfahren;
+		private string _verfahren = String.Empty;
 
 		public string Verfahren
 		{
@@ -16,7 +16,7 @@ namespace rjertila.Satellitenverwaltung
 			set { _verfahren = value; }
 		}
 
-		private string _paket;
+		private string _paket = String.Empty;
 
 		public string Paket
 		{
@@ -24,7 +24,7 @@ namespace rjertila.Satellitenverwaltung
 			set { _paket = value; }
 		}
 
-		public Verschluesselt ( string name, string sprache, string qualitaet, string verfahren, string paket) : base(name, sprache, qualiteat)
+		public Verschluesselt ( string name, string sprache, Qualiteaten qualitaet, string verfahren, string paket) : base(name, sprache, qualitaet)
 		{
 			Verfahren = verfahren;
 			Paket = paket;
@@ -32,7 +32,7 @@ namespace rjertila.Satellitenverwaltung
 
 		public override string ToString()
 		{
-			return $" {base.ToString()} ({Verfahren})  [{Paket}]";
+			return $" {base.ToString()} ({Verfahren}) [{Paket}]";
 		}
 
 	}

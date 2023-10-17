@@ -8,14 +8,14 @@ namespace rjertila.Satellitenverwaltung
 {
 	public class Sender
 	{
-		private string _name;
+		private string _name = String.Empty;
 
 		public string Name
 		{
 			get { return _name; }
 			set { _name = value; }
 		}
-		private string _sprache;
+		private string _sprache = String.Empty;
 
 		public string Sprache
 		{
@@ -41,7 +41,7 @@ namespace rjertila.Satellitenverwaltung
 
 		public override string ToString()
 		{
-			return Name + Sprache + Qualitaet;
+			return $"{Name} {Sprache} {Qualiteat}";
 		}
 	}
 }
