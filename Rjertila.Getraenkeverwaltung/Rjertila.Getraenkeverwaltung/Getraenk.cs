@@ -32,7 +32,7 @@ namespace Rjertila.Getraenkeverwaltung
 
 		public override string ToString()
 		{
-			return $"{Bezeichnung} {Fuellmenge}ml ";
+			return $"{Bezeichnung, -15} {Fuellmenge, -8}ml ";
 		}
 
 	}

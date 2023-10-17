@@ -24,7 +24,7 @@ namespace Rjertila.Getraenkeverwaltung
 
 		public override string ToString()
 		{
-			return $"{base.ToString()}  Eiswuerfel: {Eiswuerfel} ";
+			return $"{base.ToString()}  Eiswuerfel: {Eiswuerfel, -2} ";
 		}
 
 	}
