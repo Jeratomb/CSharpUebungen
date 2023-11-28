@@ -40,7 +40,7 @@ public class NotenManager
 
     private double BerechnenDurchschnitt(IEnumerable<Zensur> zensurenFürFach)
     {
-        throw new NotImplementedException();
+        throw DurchschnittRechner.BerechnenDurchschnitt(zensurenFürFach);
     }
 
     public void HinzufuegenZensur(Zensur zensur)
