@@ -14,7 +14,7 @@ internal class StandardDurchschnittRechner : IDurchschnittRechner
             if (z.Art == Leistungsart.SA) 
             { 
                 sum += z.Note * 2; 
-                count += 2; 
+                count ++; 
             }
             else sum += z.Note; count++;
         }

@@ -1,7 +1,6 @@
 ﻿using Notenverwaltung.DataAccess;
 using Notenverwaltung.Logik;
 using Notenverwaltung.Model;
-using System.Runtime.CompilerServices;
 
 NotenManager test = new NotenManager(new FakeZensurenRepository());
 AusgebenAlleZensuren();
@@ -14,7 +13,7 @@ void AusgebenAlleZensuren()
 {
     foreach(Zensur z in test.Zensuren)
     {
-        Console.WriteLine($"{z.Fach}-{z.Art} am {z.Datum}: Note {z.Note}");
+        Console.WriteLine($"{z.Fach}-{z.Art} am {z.Datum.ToString("dd/MM/yyyy")}: Note {z.Note}");
     }
 }
 

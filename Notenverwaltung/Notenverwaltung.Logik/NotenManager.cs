@@ -25,7 +25,7 @@ public class NotenManager
         IEnumerable<Zensur> data = new List<Zensur>();
         foreach(Zensur item in Zensuren)
         {
-            if(item.Fach == fach) data.Append(item);
+            if (item.Fach == fach) data = data.Append(item);
         }
         return data;
     }
@@ -33,14 +33,11 @@ public class NotenManager
     public double BerechnenDurchschnitt(string fach) 
     {
 
-        IEnumerable<Zensur> zensurenFürFach = Zensuren.Where(z => z.Fach == fach);
+        // IEnumerable<Zensur> zensurenFürFach = Zensuren.Where(z => z.Fach == fach);
 
-        return zensurenFürFach.Any() ? BerechnenDurchschnitt(zensurenFürFach) : 0;
-    }
+        IEnumerable<Zensur> zensurenFürFach = ZensurenImFach(fach);
 
-    private double BerechnenDurchschnitt(IEnumerable<Zensur> zensurenFürFach)
-    {
-        throw DurchschnittRechner.BerechnenDurchschnitt(zensurenFürFach);
+        return zensurenFürFach.Any() ? DurchschnittRechner.BerechnenDurchschnitt(zensurenFürFach) : 0;
     }
 
     public void HinzufuegenZensur(Zensur zensur)
