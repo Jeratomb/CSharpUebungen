@@ -12,11 +12,7 @@ public class NotenManager
         _repository = repository;
         DurchschnittRechner = new StandardDurchschnittRechner();
     }
-    public NotenManager(IZensurenRepository repository, IDurchschnittRechner rechner)
-    {
-        _repository = repository;
-        DurchschnittRechner = rechner;
-    }
+
     public IEnumerable<Zensur> Zensuren
     {
         get
@@ -27,12 +23,12 @@ public class NotenManager
 
     public IEnumerable<Zensur> ZensurenImFach(string fach)
     {
-        IEnumerable<Zensur> data = new List<Zensur>();
-        foreach(Zensur item in Zensuren)
+        //List<Zensur> data = new List<Zensur>();
+        // data.Add(item)
+        foreach (Zensur item in Zensuren)
         {
-            if (item.Fach == fach) data = data.Append(item);
+            if (item.Fach.Equals(fach)) yield return item;
         }
-        return data;
     }
 
     public double BerechnenDurchschnitt(string fach) 

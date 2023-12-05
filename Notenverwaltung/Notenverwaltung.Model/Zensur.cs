@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Security.Cryptography;
+
 namespace Notenverwaltung.Model
 {
 	public class Zensur
@@ -23,5 +25,18 @@ namespace Notenverwaltung.Model
 		public Zensur() : this(String.Empty, DateTime.Today, 1, Leistungsart.KA) { }
 
 		#endregion
+
+		public string FormatZensur()
+		{
+            string formattedDate = this.Datum.ToString("ddMMyyyy");
+			if(this.Art == Leistungsart.MDL)
+			{
+                return $"2:{formattedDate}{this.Art}{this.Note}";
+            }else
+			{
+                return $"2:{formattedDate}{this.Art} {this.Note}";
+            }
+            
+		}
 	}
 }
