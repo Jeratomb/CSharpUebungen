@@ -8,6 +8,9 @@ AusgebenAlleZensuren();
 string fach = "Prog";
 Console.WriteLine($"Durchschnitt im Fach {fach}: {test.BerechnenDurchschnitt(fach)}");
 
+NotenManager gym = new NotenManager(new FakeZensurenRepository(), new GymDurchschnittRechner());
+Console.WriteLine($"Durchschnitt im Fach {fach}: {gym.BerechnenDurchschnitt(fach)}");
+
 
 void AusgebenAlleZensuren()
 {

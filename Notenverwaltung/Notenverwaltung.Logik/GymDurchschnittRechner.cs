@@ -10,25 +10,32 @@ public class GymDurchschnittRechner : IDurchschnittRechner
         double avgLN = 0;
         int countSA = 0;
         int countLN = 0;
-        int sumSA = 0;
-        int sumLN = 0;
+        double sumSA = 0;
+        double sumLN = 0;
 
         foreach (Zensur z in zensuren)
         {
-           if(z.Art == Leistungsart.SA)
+            if (z.Art == Leistungsart.SA)
             {
-                sumSA += z.Note;
+                sumSA += z.Note * 2;
                 countSA += 2;
             }
             else
             {
                 sumLN += z.Note;
-                countLN++; ;
-            }               
+                countLN++;
+            }
         }
 
-        avgSA = sumSA / countSA;
-        avgLN = sumLN / countLN;
+        if (countSA > 0)
+        {
+            avgSA = sumSA / countSA;
+        }
+
+        if (countLN > 0)
+        {
+            avgLN = sumLN / countLN;
+        }
 
         if (countSA == 0 && countLN > 0) return Math.Round((double)avgLN, 2);
         if (countSA > 0 && countLN == 0) return Math.Round((double)avgSA, 2);

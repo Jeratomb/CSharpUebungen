@@ -12,6 +12,11 @@ public class NotenManager
         _repository = repository;
         DurchschnittRechner = new StandardDurchschnittRechner();
     }
+    public NotenManager(IZensurenRepository repository, IDurchschnittRechner rechner)
+    {
+        _repository = repository;
+        DurchschnittRechner = rechner;
+    }
     public IEnumerable<Zensur> Zensuren
     {
         get

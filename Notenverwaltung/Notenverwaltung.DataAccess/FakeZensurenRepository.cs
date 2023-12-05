@@ -34,7 +34,9 @@ namespace Notenverwaltung.DataAccess
              new Zensur("M", new DateTime(2017, 6, 1), 2, Leistungsart.SA),
              new Zensur("M", new DateTime(2017, 7, 3), 2, Leistungsart.mdl),
              new Zensur("Abap", new DateTime(2016, 11, 19), 4, Leistungsart.KA),
-             new Zensur("Abap", new DateTime(2017, 4, 22), 3, Leistungsart.KA)
+             new Zensur("Abap", new DateTime(2017, 4, 22), 3, Leistungsart.KA),
+             new Zensur("DB", new DateTime(2023, 3, 12), 1, Leistungsart.KA),
+             new Zensur("DB", new DateTime(2023, 5, 2), 3, Leistungsart.SA)
         };
         }
 
