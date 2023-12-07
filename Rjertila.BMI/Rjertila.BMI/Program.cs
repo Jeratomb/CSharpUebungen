@@ -15,4 +15,5 @@ foreach(Person p in array)
     Console.WriteLine(p);
     Console.WriteLine("--------------------------");
 }
-Console.WriteLine(test.BerechneAlter(new DateOnly(2003,02,28)));
+Console.WriteLine(test.BerechneAlter(new DateOnly(2003,03,1)));
+Console.ReadKey();

@@ -7,7 +7,7 @@ class Program
 {
     static void Main()
     {
-        FileZensurenRepository repo = new FileZensurenRepository("H:\\Weinzierl\\Csharp\\MeinNoten.txt");
+        FileZensurenRepository repo = new FileZensurenRepository("X:\\FilesForCode\\MeinNoten.txt");
 
         NotenManager notenManager = new NotenManager(repo);
 

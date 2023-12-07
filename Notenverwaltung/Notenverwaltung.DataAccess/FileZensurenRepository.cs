@@ -59,7 +59,18 @@ public class FileZensurenRepository : IZensurenRepository
     {
         if (_zensuren != null)
         {
-            var faecher = _zensuren.GroupBy(x => x.Fach).Select(y => y.First().Fach).OrderBy(z => z).ToList();
+            //var faecher = _zensuren.GroupBy(x => x.Fach).Select(y => y.First().Fach).OrderBy(z => z).ToList();
+            List<string> faecher = new();
+            HashSet<string> faecherSet = new();
+
+            foreach(var item in _zensuren)
+            {
+                if(faecherSet.Add(item.Fach))
+                {
+                    faecher.Add(item.Fach);
+                }
+            }
+            faecher.Sort();
 
             using (FileStream fsDatei = File.Open(DateiPfad, FileMode.Create, FileAccess.Write, FileShare.None))
             {
@@ -68,7 +79,14 @@ public class FileZensurenRepository : IZensurenRepository
                     foreach(var fach in faecher) 
                     {
                         writer.WriteLine($"1:{fach}");
-                        var zensurenFuerFach = _zensuren.Where(z => z.Fach == fach).OrderBy(z => z.Datum);
+                        List<Zensur> zensurenFuerFach = new();
+                        foreach(var item in _zensuren)
+                        {
+                            if(item.Fach == fach)
+                            {
+                                zensurenFuerFach.Add(item);
+                            }
+                        }
                         foreach (var item in zensurenFuerFach)
                         {
                             writer.WriteLine(item.FormatZensur());
