@@ -8,7 +8,7 @@ namespace Rjertila.DB_Verwaltung;
 
 public class PK : Constraint
 {
-    public PK(string bezeichner, string definition) : base(bezeichner, definition) {}
+    public PK(string bezeichner, string definition) : base(bezeichner, definition) {} 
 
     public override string ToString()
     {

@@ -12,7 +12,12 @@ public class Tabelle : IDbElement
     public string Bezeichner { get; set; }
     public List<Spalte> Spalten { get; set; }
     public List<Constraint> Constraints { get; set; }
-
+    
+    public Tabelle()
+    {
+        Spalten = new List<Spalte>();
+        Constraints = new List<Constraint>();
+    }
     public Tabelle(string bezeichner, List<Spalte> spalten, List<Constraint> constraints)
     {
         Bezeichner = bezeichner;
@@ -67,5 +72,10 @@ public class Tabelle : IDbElement
     public string getBezeichner()
     {
         return this.Bezeichner;
+    }
+
+    public override string ToString()
+    {
+        return $"Tabelle ({this.Bezeichner})";
     }
 }

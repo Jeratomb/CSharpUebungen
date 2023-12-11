@@ -13,4 +13,9 @@ public  class Datenbank
         this.name = name;
         this.Tabellen = new List<Tabelle>();
     }
+
+    public override string ToString()
+    {
+        return $"Datenbank ({this.name})";
+    }
 }
