@@ -85,6 +85,21 @@ public class FileZensurenRepository : IZensurenRepository
                             if(item.Fach == fach)
                             {
                                 zensurenFuerFach.Add(item);
+                               
+                            }
+                        }
+
+                        for (int i = 0; i < zensurenFuerFach.Count - 1; i++)
+                        {
+                            for (int j = 0; j < zensurenFuerFach.Count - i - 1; j++)
+                            {
+                                if (zensurenFuerFach[j].Datum > zensurenFuerFach[j + 1].Datum)
+                                {
+                                    
+                                    Zensur temp = zensurenFuerFach[j];
+                                    zensurenFuerFach[j] = zensurenFuerFach[j + 1];
+                                    zensurenFuerFach[j + 1] = temp;
+                                }
                             }
                         }
                         foreach (var item in zensurenFuerFach)
