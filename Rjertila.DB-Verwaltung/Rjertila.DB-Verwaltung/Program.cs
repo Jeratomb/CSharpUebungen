@@ -16,4 +16,4 @@ Constraint constraint2 = new UQ("UQ", "Unique");
 t1.Constraints.Add(constraint1);
 t1.Constraints.Add(constraint2);
 
-Console.WriteLine(db.name);
+Console.WriteLine(db.Bezeichner);

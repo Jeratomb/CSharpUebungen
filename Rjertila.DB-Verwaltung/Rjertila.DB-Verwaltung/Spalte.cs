@@ -22,5 +22,17 @@ public class Spalte : IDbElement
     {
         return this.Bezeichner;
     }
+
+    public string create()
+    {
+        StringBuilder sb = new StringBuilder();
+        sb.Append(Bezeichner).Append(" ").Append(Datentyp);
+        if (!Nullable)
+        {
+            sb.Append(" NOT NULL");
+        }
+        return sb.ToString();
+    }
+
 }
 

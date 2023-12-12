@@ -7,7 +7,7 @@ class Program
 {
     static void Main()
     {
-        FileZensurenRepository repo = new FileZensurenRepository("X:\\FilesForCode\\MeinNoten.txt");
+        FileZensurenRepository repo = new FileZensurenRepository("H:\\MeinNoten.txt");
 
         NotenManager notenManager = new NotenManager(repo);
 
@@ -20,7 +20,12 @@ class Program
         Console.WriteLine($"Durchschnitt im Fach {fach}: {notenManager.BerechnenDurchschnitt(fach)}");
 
         Zensur testZensur = new Zensur("Meso", new DateTime(2023, 12, 05), 4, Leistungsart.KA);
+        Zensur testZensur2 = new Zensur("Meso", new DateTime(2022, 12, 05), 4, Leistungsart.KA);
+        Zensur testZensur3 = new Zensur("Meso", new DateTime(2021, 12, 05), 4, Leistungsart.KA);
         notenManager.HinzufuegenZensur(testZensur);
+        notenManager.HinzufuegenZensur(testZensur2);
+        notenManager.HinzufuegenZensur(testZensur3);
+
     }
 
     static void AusgebenAlleZensuren(NotenManager notenManager)

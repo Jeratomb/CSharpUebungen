@@ -25,7 +25,7 @@ public class Tabelle : IDbElement
         Constraints = constraints;
     }   
 
-     public string createTable()
+     public string create()
     {
         StringBuilder sb = new StringBuilder();
         sb.Append("CREATE TABLE ");
@@ -61,21 +61,12 @@ public class Tabelle : IDbElement
         Spalten.Add(spalte);
     }   
 
-    public void removeSpalte(Spalte spalte)
-    {
-        Spalten.Remove(spalte);
-    }   
+    public void removeSpalte(Spalte spalte){Spalten.Remove(spalte); }   
 
     public void addConstraint(Constraint constraint) { Constraints.Add(constraint); }
     public void removeConstraint(Constraint constraint) { Constraints.Remove(constraint); }
 
-    public string getBezeichner()
-    {
-        return this.Bezeichner;
-    }
+    public string getBezeichner(){ return this.Bezeichner; }
 
-    public override string ToString()
-    {
-        return $"Tabelle ({this.Bezeichner})";
-    }
+    public override string ToString(){ return $"Tabelle ({this.Bezeichner})"; }
 }

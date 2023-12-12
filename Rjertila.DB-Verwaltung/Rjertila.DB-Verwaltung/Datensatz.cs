@@ -6,9 +6,6 @@ using System.Threading.Tasks;
 
 namespace Rjertila.DB_Verwaltung;
 
-public interface IDbElement
+public class Datensatz
 {
-    string getBezeichner();
-    string create();
-    
 }
