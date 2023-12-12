@@ -13,9 +13,29 @@ public class FileZensurenRepository
 
     public IEnumerable<Zensur> GetAll()
     {
-        if(_zensuren == null)
+        string currentSubject = "";
+        if (_zensuren == null)
         {
-           
+            string[] lines = File.ReadAllLines(DateiPfad);
+            foreach (string line in lines)
+            {
+                int index = int.Parse(line.Substring(0, 1));
+                if(index == 1)
+                {
+                    currentSubject = line.Substring(2);
+                }
+                if(index == 2)
+                {
+                    DateTime date = DateTime.Parse(line.Substring(2, 8));
+                    Leistungsart art;
+                    Enum.TryParse<Leistungsart>(line.Substring(10, 2).Trim(), true, out art);
+                    int note = int.Parse(line.Substring(13));
+                    _zensuren.Add(new Zensur(currentSubject, date, note, art));
+                    // TODO: testing if its working
+                }
+            }
         }
+        return _zensuren;
+        
     }
 }
