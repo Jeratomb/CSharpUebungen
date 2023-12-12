@@ -17,8 +17,8 @@ public class GymDurchschnittRechner : IDurchschnittRechner
         {
             if (z.Art == Leistungsart.SA)
             {
-                sumSA += z.Note * 2;
-                countSA += 2;
+                sumSA += z.Note;
+                countSA ++;
             }
             else
             {
